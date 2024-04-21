@@ -1,6 +1,6 @@
-let operand0;
-let operator;
-let operand1;
+let operand0 = "";
+let operator = "";
+let operand1 = "";
 let operationToFunction = {
   "+": add,
   "−": subtract,
