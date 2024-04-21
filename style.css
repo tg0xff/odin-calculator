@@ -1,5 +1,8 @@
 :root {
   font-size: medium;
+
+  --fg-colour: #222;
+  --bg-colour: #fff
 }
 
 .calc {
