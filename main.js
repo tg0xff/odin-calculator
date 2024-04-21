@@ -20,6 +20,11 @@ function main(e) {
   }
 }
 
+function operate(operation, x, y) {
+  let operF = operationToFunction[operation];
+  return operF(x, y);
+}
+
 function add(x, y) {
   return x + y;
 }
@@ -34,9 +39,4 @@ function multiply(x, y) {
 
 function divide(x, y) {
   return x / y;
-}
-
-function operate(operation, x, y) {
-  let operF = operationToFunction[operation];
-  return operF(x, y);
 }
