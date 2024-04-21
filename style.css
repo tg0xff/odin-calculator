@@ -1,5 +1,6 @@
 :root {
   font-size: medium;
+  font-family: system-ui, sans-serif;
 
   --fg-colour: #222;
   --bg-colour: #fff
