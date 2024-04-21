@@ -1,0 +1,8 @@
+:root {
+  font-size: medium;
+}
+
+.calc {
+  max-width: 35rem;
+  min-height: 43rem;
+}
