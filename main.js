@@ -22,7 +22,7 @@ function main(e) {
 
 function operate(operation, x, y) {
   let operF = operationToFunction[operation];
-  return operF(x, y);
+  return operF(+x, +y);
 }
 
 function add(x, y) {
