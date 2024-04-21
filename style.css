@@ -11,7 +11,7 @@ button {
   background-color: var(--bg-colour);
   border: 2px solid var(--fg-colour);
   border-radius: 6px;
-  font-size: 42pt;
+  font-size: 4.5rem;
 }
 
 .calc {
