@@ -14,17 +14,6 @@ button {
   font-size: 4.5rem;
 }
 
-.screen {
-  font-family: monospace;
-  font-size: 4rem;
-  color: var(--fg-colour);
-  border: 2px solid var(--fg-colour);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 .calc {
   max-width: 35rem;
   min-height: 43rem;
@@ -40,6 +29,14 @@ button {
 
 .screen {
   flex: 1;
+  font-family: monospace;
+  font-size: 4rem;
+  color: var(--fg-colour);
+  border: 2px solid var(--fg-colour);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .calc-inputs {
