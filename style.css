@@ -34,3 +34,11 @@ button {
   flex: 4;
   display: flex;
 }
+
+.calc-numbers {
+  flex: 3;
+}
+
+.calc-operators {
+  flex: 1;
+}
