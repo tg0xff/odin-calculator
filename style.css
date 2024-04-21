@@ -3,7 +3,8 @@
   font-family: system-ui, sans-serif;
 
   --fg-colour: #222;
-  --bg-colour: #fff
+  --bg-colour: #fff;
+  --bg-hover-colour: #ccc;
 }
 
 button {
@@ -12,6 +13,15 @@ button {
   border: 2px solid var(--fg-colour);
   border-radius: 6px;
   font-size: 4.5rem;
+}
+
+button:hover {
+  background-color: var(--bg-hover-colour);
+}
+
+button:active {
+  color: var(--bg-colour);
+  background-color: var(--fg-colour);
 }
 
 .calc {
