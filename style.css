@@ -6,6 +6,18 @@
   --bg-colour: #fff;
   --bg-hover-colour: #ccc;
   --bg-clear-colour: #ff8f88;
+
+  color: var(--fg-colour);
+  background-color: var(--bg-colour);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg-colour: #ddd;
+    --bg-colour: #000;
+    --bg-hover-colour: #333;
+    --bg-clear-colour: #9d1f1f;
+  }
 }
 
 button {
