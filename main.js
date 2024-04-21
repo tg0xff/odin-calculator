@@ -7,6 +7,18 @@ let operationToFunction = {
   "×": multiply,
   "÷": divide,
 }
+let screenContent = "";
+
+const calcInputs = document.querySelector(".calc-inputs");
+calcInputs.addEventListener("click", main);
+const screen = document.querySelector(".screen");
+
+function main(e) {
+  if (e.target.parentNode.classList.contains("calc-numbers")) {
+    screenContent = screenContent + e.target.textContent;
+    screen.textContent = screenContent;
+  }
+}
 
 function add(x, y) {
   return x + y;
