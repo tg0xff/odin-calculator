@@ -32,4 +32,5 @@ button {
 
 .calc-inputs {
   flex: 4;
+  display: flex;
 }
