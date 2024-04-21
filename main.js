@@ -7,7 +7,7 @@ let operationToFunction = {
   "×": multiply,
   "÷": divide,
 }
-let screenContent = "";
+let screenContent = "0";
 
 const calcInputs = document.querySelector(".calc-inputs");
 calcInputs.addEventListener("click", main);
