@@ -10,4 +10,5 @@
   min-height: 43rem;
   border: 3px solid var(--fg-colour);
   border-radius: 16px;
+  padding: 1rem;
 }
