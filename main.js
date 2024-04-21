@@ -14,7 +14,7 @@ calcInputs.addEventListener("click", main);
 const screen = document.querySelector(".screen");
 
 function main(e) {
-  if (e.target.parentNode.classList.contains("calc-numbers")) {
+  if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
     screenContent = screenContent + e.target.textContent;
     screen.textContent = screenContent;
   }
