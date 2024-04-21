@@ -5,6 +5,14 @@
   --bg-colour: #fff
 }
 
+button {
+  color: var(--fg-colour);
+  background-color: var(--bg-colour);
+  border: 2px solid var(--fg-colour);
+  border-radius: 6px;
+  font-size: 42pt;
+}
+
 .calc {
   max-width: 35rem;
   min-height: 43rem;
