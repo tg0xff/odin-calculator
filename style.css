@@ -5,6 +5,7 @@
   --fg-colour: #222;
   --bg-colour: #fff;
   --bg-hover-colour: #ccc;
+  --bg-clear-colour: #ff8f88;
 }
 
 button {
@@ -74,4 +75,8 @@ button:active {
 
 .calc-operators > * {
   flex: 1;
+}
+
+.calc-clear {
+  background-color: var(--bg-clear-colour);
 }
