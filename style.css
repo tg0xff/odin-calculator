@@ -3,6 +3,7 @@
   font-family: system-ui, sans-serif;
 
   --fg-colour: #222;
+  --fg-error-colour: #d00000;
   --bg-colour: #fff;
   --bg-hover-colour: #ccc;
   --bg-clear-colour: #ff8f88;
@@ -14,6 +15,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --fg-colour: #ddd;
+    --fg-error-colour: #ff5f5f;
     --bg-colour: #000;
     --bg-hover-colour: #333;
     --bg-clear-colour: #9d1f1f;
@@ -91,4 +93,10 @@ button:active {
 
 .calc-clear {
   background-color: var(--bg-clear-colour);
+}
+
+.error-message {
+  font-size: 1rem;
+  color: var(--fg-error-colour);
+  text-align: center;
 }

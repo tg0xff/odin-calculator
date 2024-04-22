@@ -37,11 +37,7 @@ function main(e) {
     }
     calculateResult();
   } else if (e.target.textContent === "C") {
-    operand0 = "";
-    operator = "";
-    operand1 = "";
-    screenContent = "0";
-    hasDecimalFraction = false;
+    resetState();
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
     if (operand0 === "") {
       operand0 = screenContent;
@@ -57,10 +53,32 @@ function calculateResult() {
   if (operand1 === "" || screenContent !== operand0) {
     operand1 = screenContent;
   }
+  if (operator === "÷" && operand1 === "0") {
+    rejectDivideBy0();
+    return;
+  }
   screenContent = operate(operator, operand0, operand1);
   screenContent = screenContent.toString();
   hasDecimalFraction = !!screenContent.includes(".");
   operand0 = screenContent;
+}
+
+function rejectDivideBy0() {
+  resetState();
+  const body = document.querySelector("body");
+  const p = document.createElement("p");
+  p.classList.add("error-message");
+  p.textContent = "I'm sorry Dave, I'm afraid I can't do that.";
+  body.appendChild(p);
+  setTimeout(() => body.removeChild(p), 5000);
+}
+
+function resetState() {
+  operand0 = "";
+  operator = "";
+  operand1 = "";
+  screenContent = "0";
+  hasDecimalFraction = false;
 }
 
 function updateScreen() {
