@@ -16,11 +16,7 @@ const screen = document.querySelector("#screen");
 
 function main(e) {
   if (e.target.textContent === "C") {
-    operand0 = "";
-    operator = "";
-    operand1 = "";
-    screenContent = "0";
-    hasDecimalFraction = false;
+    resetState(true);
   } else if (e.target.textContent === "=") {
     operand1 = screenContent;
     screenContent = operate(operator, operand0, operand1);
@@ -48,6 +44,16 @@ function main(e) {
     }
   }
   updateScreen();
+}
+
+function resetState(resetCompletely = false) {
+  operand0 = "";
+  operator = "";
+  operand1 = "";
+  if (resetCompletely) {
+    screenContent = "0";
+    hasDecimalFraction = false;
+  }
 }
 
 function updateScreen() {
