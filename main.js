@@ -25,14 +25,23 @@ function main(e) {
     screenContent = operate(operator, operand0, operand1);
     screenContent = screenContent.toString();
     hasDecimalFraction = !!screenContent.includes(".");
+    operand0 = screenContent;
   } else if (e.target.textContent === "⌫") {
     if (screenContent[screenContent.length - 1] === ".") {
       hasDecimalFraction = false;
     }
     screenContent = screenContent.slice(0, -1);
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
-    operand0 = screenContent;
-    operator = e.target.textContent;
+    if (operand0 === "") {
+      operand0 = screenContent;
+      operator = e.target.textContent;
+    } else {
+      operand1 = screenContent;
+      screenContent = operate(e.target.textContent, operand0, operand1);
+      screenContent = screenContent.toString();
+      hasDecimalFraction = !!screenContent.includes(".");
+      operand0 = screenContent;
+    }
   } else if (e.target.textContent === ".") {
     if (!hasDecimalFraction) {
       screenContent = screenContent + ".";
