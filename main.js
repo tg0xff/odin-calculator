@@ -19,6 +19,9 @@ function main(e) {
     screenContent = operate(operator, operand0, operand1);
     screenContent = screenContent.toString();
     updateScreen();
+  } else if (e.target.textContent === "⌫") {
+    screenContent = screenContent.slice(0, -1);
+    updateScreen();
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
     operand0 = screenContent;
     operator = e.target.textContent;
