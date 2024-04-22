@@ -27,8 +27,10 @@ function main(e) {
     screenContent = screenContent.toString();
     hasDecimalFraction = !!screenContent.includes(".");
   } else if (e.target.textContent === "⌫") {
+    if (screenContent[screenContent.length - 1] === ".") {
+      hasDecimalFraction = false;
+    }
     screenContent = screenContent.slice(0, -1);
-    hasDecimalFraction = !!screenContent.includes(".");
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
     operand0 = screenContent;
     operator = e.target.textContent;
