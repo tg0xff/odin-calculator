@@ -6,7 +6,7 @@ let operationToFunction = {
   "−": subtract,
   "×": multiply,
   "÷": divide,
-}
+};
 let screenContent = "0";
 let hasDecimalFraction = false;
 
@@ -42,7 +42,7 @@ function main(e) {
     }
   } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
     if (screenContent === "0") {
-      screenContent = e.target.textContent
+      screenContent = e.target.textContent;
     } else {
       screenContent = screenContent + e.target.textContent;
     }
