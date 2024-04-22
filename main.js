@@ -54,7 +54,9 @@ function main(e) {
 }
 
 function calculateResult() {
-  operand1 = screenContent;
+  if (operand1 === "" || screenContent !== operand0) {
+    operand1 = screenContent;
+  }
   screenContent = operate(operator, operand0, operand1);
   screenContent = screenContent.toString();
   hasDecimalFraction = !!screenContent.includes(".");
