@@ -14,7 +14,17 @@ calcInputs.addEventListener("click", main);
 const screen = document.querySelector(".screen");
 
 function main(e) {
-  if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
+  if (e.target.textContent === "=") {
+    operand1 = screenContent;
+    screenContent = operate(operator, operand0, operand1);
+    screenContent = screenContent.toString();
+    screen.textContent = screenContent;
+  } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
+    operand0 = screenContent;
+    operator = e.target.textContent;
+    screenContent = "0";
+    screen.textContent = screenContent;
+  } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
     screenContent = screenContent + e.target.textContent;
     screen.textContent = screenContent;
   }
