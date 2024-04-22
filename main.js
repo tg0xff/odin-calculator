@@ -15,39 +15,39 @@ calcInputs.addEventListener("click", main);
 const screen = document.querySelector("#screen");
 
 function main(e) {
-  if (e.target.textContent === "C") {
-    operand0 = "";
-    operator = "";
-    operand1 = "";
-    screenContent = "0";
-    hasDecimalFraction = false;
-  } else if (e.target.textContent === "=") {
-    if (operand0 === "" && operator === "" && operand1 === "") {
-      return;
+  if (e.target.textContent === ".") {
+    if (!hasDecimalFraction) {
+      screenContent = screenContent + ".";
+      hasDecimalFraction = true;
     }
-    calculateResult();
   } else if (e.target.textContent === "⌫") {
     if (screenContent[screenContent.length - 1] === ".") {
       hasDecimalFraction = false;
     }
     screenContent = screenContent.slice(0, -1);
+  } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
+    if (screenContent === "0" || screenContent === operand0) {
+      screenContent = e.target.textContent;
+    } else {
+      screenContent = screenContent + e.target.textContent;
+    }
+  } else if (e.target.textContent === "=") {
+    if (operand0 === "" && operator === "" && operand1 === "") {
+      return;
+    }
+    calculateResult();
+  } else if (e.target.textContent === "C") {
+    operand0 = "";
+    operator = "";
+    operand1 = "";
+    screenContent = "0";
+    hasDecimalFraction = false;
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
     if (operand0 === "") {
       operand0 = screenContent;
       operator = e.target.textContent;
     } else {
       calculateResult();
-    }
-  } else if (e.target.textContent === ".") {
-    if (!hasDecimalFraction) {
-      screenContent = screenContent + ".";
-      hasDecimalFraction = true;
-    }
-  } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
-    if (screenContent === "0" || screenContent === operand0) {
-      screenContent = e.target.textContent;
-    } else {
-      screenContent = screenContent + e.target.textContent;
     }
   }
   updateScreen();
