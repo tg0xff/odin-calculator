@@ -1,6 +1,6 @@
-let operand0 = "";
-let operator = "";
-let operand1 = "";
+let operand0 = "0";
+let operator = "+";
+let operand1 = "0";
 let operationToFunction = {
   "+": add,
   "−": subtract,
@@ -15,9 +15,9 @@ const screen = document.querySelector(".screen");
 
 function main(e) {
   if (e.target.textContent = "C") {
-    operand0 = "";
-    operator = "";
-    operand1 = "";
+    operand0 = "0";
+    operator = "+";
+    operand1 = "0";
     screenContent = "0";
   } else if (e.target.textContent === "=") {
     operand1 = screenContent;
