@@ -14,7 +14,7 @@ calcInputs.addEventListener("click", main);
 const screen = document.querySelector(".screen");
 
 function main(e) {
-  if (e.target.textContent = "C") {
+  if (e.target.textContent === "C") {
     operand0 = "0";
     operator = "+";
     operand1 = "0";
