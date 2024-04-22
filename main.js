@@ -25,11 +25,7 @@ function main(e) {
     if (operand0 === "" && operator === "" && operand1 === "") {
       return;
     }
-    operand1 = screenContent;
-    screenContent = operate(operator, operand0, operand1);
-    screenContent = screenContent.toString();
-    hasDecimalFraction = !!screenContent.includes(".");
-    operand0 = screenContent;
+    calculateResult();
   } else if (e.target.textContent === "⌫") {
     if (screenContent[screenContent.length - 1] === ".") {
       hasDecimalFraction = false;
@@ -40,11 +36,7 @@ function main(e) {
       operand0 = screenContent;
       operator = e.target.textContent;
     } else {
-      operand1 = screenContent;
-      screenContent = operate(e.target.textContent, operand0, operand1);
-      screenContent = screenContent.toString();
-      hasDecimalFraction = !!screenContent.includes(".");
-      operand0 = screenContent;
+      calculateResult();
     }
   } else if (e.target.textContent === ".") {
     if (!hasDecimalFraction) {
@@ -59,6 +51,14 @@ function main(e) {
     }
   }
   updateScreen();
+}
+
+function calculateResult() {
+  operand1 = screenContent;
+  screenContent = operate(operator, operand0, operand1);
+  screenContent = screenContent.toString();
+  hasDecimalFraction = !!screenContent.includes(".");
+  operand0 = screenContent;
 }
 
 function updateScreen() {
