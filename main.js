@@ -8,6 +8,7 @@ let operationToFunction = {
   "÷": divide,
 }
 let screenContent = "0";
+let hasDecimalFraction = false;
 
 const calcInputs = document.querySelector("#calc-inputs");
 calcInputs.addEventListener("click", main);
@@ -19,16 +20,22 @@ function main(e) {
     operator = "+";
     operand1 = "0";
     screenContent = "0";
+    hasDecimalFraction = false;
   } else if (e.target.textContent === "=") {
     operand1 = screenContent;
     screenContent = operate(operator, operand0, operand1);
     screenContent = screenContent.toString();
+    hasDecimalFraction = !!screenContent.includes(".");
   } else if (e.target.textContent === "⌫") {
     screenContent = screenContent.slice(0, -1);
+    hasDecimalFraction = !!screenContent.includes(".");
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
     operand0 = screenContent;
     operator = e.target.textContent;
     screenContent = "0";
+  } else if (e.target.textContent === "." && !hasDecimalFraction) {
+    screenContent = screenContent + ".";
+    hasDecimalFraction = true;
   } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
     screenContent = screenContent + e.target.textContent;
   }
