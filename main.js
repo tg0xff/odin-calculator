@@ -1,6 +1,6 @@
-let operand0 = "0";
-let operator = "+";
-let operand1 = "0";
+let operand0 = "";
+let operator = "";
+let operand1 = "";
 let operationToFunction = {
   "+": add,
   "−": subtract,
@@ -16,9 +16,9 @@ const screen = document.querySelector("#screen");
 
 function main(e) {
   if (e.target.textContent === "C") {
-    operand0 = "0";
-    operator = "+";
-    operand1 = "0";
+    operand0 = "";
+    operator = "";
+    operand1 = "";
     screenContent = "0";
     hasDecimalFraction = false;
   } else if (e.target.textContent === "=") {
