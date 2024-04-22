@@ -30,14 +30,13 @@ function main(e) {
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
     operand0 = screenContent;
     operator = e.target.textContent;
-    screenContent = "0";
   } else if (e.target.textContent === ".") {
     if (!hasDecimalFraction) {
       screenContent = screenContent + ".";
       hasDecimalFraction = true;
     }
   } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
-    if (screenContent === "0") {
+    if (screenContent === "0" || screenContent === operand0) {
       screenContent = e.target.textContent;
     } else {
       screenContent = screenContent + e.target.textContent;
