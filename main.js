@@ -9,9 +9,9 @@ let operationToFunction = {
 }
 let screenContent = "0";
 
-const calcInputs = document.querySelector(".calc-inputs");
+const calcInputs = document.querySelector("#calc-inputs");
 calcInputs.addEventListener("click", main);
-const screen = document.querySelector(".screen");
+const screen = document.querySelector("#screen");
 
 function main(e) {
   if (e.target.textContent === "C") {
