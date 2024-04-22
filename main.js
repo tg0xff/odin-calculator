@@ -18,16 +18,26 @@ function main(e) {
     operand1 = screenContent;
     screenContent = operate(operator, operand0, operand1);
     screenContent = screenContent.toString();
-    screen.textContent = screenContent;
+    updateScreen();
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
     operand0 = screenContent;
     operator = e.target.textContent;
     screenContent = "0";
-    screen.textContent = screenContent;
+    updateScreen();
   } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
     screenContent = screenContent + e.target.textContent;
-    screen.textContent = screenContent;
+    updateScreen();
   }
+}
+
+function updateScreen() {
+  let newScreen;
+  if (screenContent.length > 13) {
+    newScreen = "…" + screenContent.slice(-13);
+  } else {
+    newScreen = screenContent;
+  }
+  screen.textContent = newScreen;
 }
 
 function operate(operation, x, y) {
