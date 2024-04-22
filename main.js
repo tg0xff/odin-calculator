@@ -35,9 +35,11 @@ function main(e) {
     operand0 = screenContent;
     operator = e.target.textContent;
     screenContent = "0";
-  } else if (e.target.textContent === "." && !hasDecimalFraction) {
-    screenContent = screenContent + ".";
-    hasDecimalFraction = true;
+  } else if (e.target.textContent === ".") {
+    if (!hasDecimalFraction) {
+      screenContent = screenContent + ".";
+      hasDecimalFraction = true;
+    }
   } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
     screenContent = screenContent + e.target.textContent;
   }
