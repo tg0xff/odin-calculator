@@ -14,7 +14,12 @@ calcInputs.addEventListener("click", main);
 const screen = document.querySelector(".screen");
 
 function main(e) {
-  if (e.target.textContent === "=") {
+  if (e.target.textContent = "C") {
+    operand0 = "";
+    operator = "";
+    operand1 = "";
+    screenContent = "0";
+  } else if (e.target.textContent === "=") {
     operand1 = screenContent;
     screenContent = operate(operator, operand0, operand1);
     screenContent = screenContent.toString();
