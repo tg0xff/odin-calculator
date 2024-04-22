@@ -18,6 +18,9 @@ function main(e) {
   if (e.target.textContent === "C") {
     resetState(true);
   } else if (e.target.textContent === "=") {
+    if (operand0 === "" && operator === "" && operand1 === "") {
+      return;
+    }
     operand1 = screenContent;
     screenContent = operate(operator, operand0, operand1);
     screenContent = screenContent.toString();
