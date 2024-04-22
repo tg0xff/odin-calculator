@@ -41,7 +41,11 @@ function main(e) {
       hasDecimalFraction = true;
     }
   } else if (e.target.parentNode.getAttribute("id") === "calc-numbers") {
-    screenContent = screenContent + e.target.textContent;
+    if (screenContent === "0") {
+      screenContent = e.target.textContent
+    } else {
+      screenContent = screenContent + e.target.textContent;
+    }
   }
   updateScreen();
 }
