@@ -3,6 +3,7 @@ let operator = "";
 let operand1 = "";
 let screenContent = "0";
 let hasDecimalFraction = false;
+let inputHasChanged = false;
 
 const calcInputs = document.querySelector("#calc-inputs");
 calcInputs.addEventListener("click", main);
@@ -29,10 +30,6 @@ function main(e) {
       break;
 
     case "calc-equals":
-      if (operand0 === "" && operator === "" && operand1 === "") {
-        return;
-      }
-      calculateResult();
       break;
 
     case "calc-clear":
@@ -42,7 +39,7 @@ function main(e) {
     default:
       switch (e.target.parentNode.getAttribute("id")) {
         case "calc-numbers":
-          if (screenContent === "0" || screenContent === operand0) {
+          if (screenContent === "0") {
             screenContent = e.target.textContent;
           } else {
             screenContent = screenContent + e.target.textContent;
@@ -50,12 +47,6 @@ function main(e) {
           break;
 
         case "calc-operators":
-          if (operand0 === "") {
-            operand0 = screenContent;
-            operator = e.target.textContent;
-          } else {
-            calculateResult();
-          }
           break;
       }
   }
@@ -63,9 +54,6 @@ function main(e) {
 }
 
 function calculateResult() {
-  if (operand1 === "" || screenContent !== operand0) {
-    operand1 = screenContent;
-  }
   if (operator === "÷" && operand1 === "0") {
     rejectDivideBy0();
     return;
