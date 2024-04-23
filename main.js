@@ -5,6 +5,27 @@ let screenContent = "0";
 let hasDecimalFraction = false;
 let changedNumberInput = false;
 
+const buttonIdToFunc = {
+  one: enterNumber,
+  two: enterNumber,
+  three: enterNumber,
+  four: enterNumber,
+  five: enterNumber,
+  six: enterNumber,
+  seven: enterNumber,
+  eight: enterNumber,
+  nine: enterNumber,
+  nought: enterNumber,
+  dot: enterDot,
+  backspace: enterBackspace,
+  clear: resetState,
+  plus: enterOperator,
+  minus: enterOperator,
+  multiplication: enterOperator,
+  division: enterOperator,
+  equals: enterEquals,
+};
+
 const calcInputs = document.querySelector("#inputs");
 calcInputs.addEventListener("click", main);
 const screen = document.querySelector("#screen");
@@ -71,7 +92,7 @@ function enterEquals() {
   changedNumberInput = false;
 }
 
-function entreBackspace() {
+function enterBackspace() {
   if (screenContent.length > 1) {
     if (screenContent[screenContent.length - 1] === ".") {
       hasDecimalFraction = false;
