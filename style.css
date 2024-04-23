@@ -31,7 +31,8 @@ button:hover {
   background-color: var(--bg-hover-colour);
 }
 
-button:active {
+button:active,
+button.active {
   color: var(--bg-colour);
   background-color: var(--fg-colour);
 }

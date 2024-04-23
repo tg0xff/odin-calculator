@@ -33,11 +33,22 @@ const keyToId = {
   Equal: "equals",
 };
 
-window.addEventListener("keydown", main)
-function main(e) {
-  const buttonId = keyToId[e.code];
-  const button = document.querySelector(`#${buttonId}`);
+window.addEventListener("keydown", (e) => {
+  const button = getButtonElement(e);
   if (button !== null) {
     button.click();
+    button.classList.add("active");
   }
+});
+
+window.addEventListener("keyup", (e) => {
+  const button = getButtonElement(e);
+  if (button !== null) {
+    button.classList.remove("active");
+  }
+});
+
+function getButtonElement(e) {
+  const buttonId = keyToId[e.code];
+  return document.querySelector(`#${buttonId}`);
 }
