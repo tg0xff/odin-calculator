@@ -3,8 +3,7 @@ const colourButton = document.querySelector("#colourscheme");
 colourButton.addEventListener("click", () => {
   html.classList.toggle("dark-mode");
   updateColourButton();
-}
-);
+});
 
 const prefersColor = window.matchMedia("(prefers-color-scheme: dark)");
 prefersColor.addEventListener("change", (e) => {
