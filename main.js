@@ -30,6 +30,9 @@ function main(e) {
       break;
 
     case "calc-equals":
+      if (operand0 === "" && operator === "" && operand1 === "") {
+        return;
+      }
       changedNumberInput = false;
       break;
 
