@@ -101,6 +101,7 @@ function resetState() {
   operand1 = "";
   screenContent = "0";
   hasDecimalFraction = false;
+  changedNumberInput = false;
 }
 
 function updateScreen() {
