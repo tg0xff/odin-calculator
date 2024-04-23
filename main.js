@@ -37,6 +37,12 @@ const buttonIdToNumber = {
   nine: "9",
   nought: "0",
 };
+const buttonIdToOperation = {
+  plus: add,
+  minus: subtract,
+  multiplication: multiply,
+  division: divide,
+};
 
 const calcInputs = document.querySelector("#inputs");
 calcInputs.addEventListener("click", main);
@@ -54,11 +60,11 @@ function main(e) {
 function enterOperator(e) {
   if (operand0 === "") {
     operand0 = screenContent;
-    operator = e.target.textContent;
+    operator = e.target.getAttribute("id");
   } else if (changedNumberInput) {
     operand1 = screenContent;
     calculateResult();
-    operator = e.target.textContent;
+    operator = e.target.getAttribute("id");
   }
   changedNumberInput = false;
 }
@@ -107,7 +113,7 @@ function enterDot() {
 }
 
 function calculateResult() {
-  if (operator === "÷" && operand1 === "0") {
+  if (operator === "division" && operand1 === "0") {
     rejectDivideBy0();
     return;
   }
@@ -147,24 +153,10 @@ function updateScreen() {
 }
 
 function operate(operation, x, y) {
-  let result;
   x = +x;
   y = +y;
-  switch (operation) {
-    case "+":
-      result = add(x, y);
-      break;
-    case "−":
-      result = subtract(x, y);
-      break;
-    case "×":
-      result = multiply(x, y);
-      break;
-    case "÷":
-      result = divide(x, y);
-      break;
-  }
-  return result;
+  const operationFunction = buttonIdToOperation[operation];
+  return operationFunction(x, y);
 }
 
 function add(x, y) {
