@@ -30,19 +30,22 @@ function main(e) {
           break;
 
         case "operators":
-          if (operand0 === "") {
-            operand0 = screenContent;
-            operator = e.target.textContent;
-          } else if (changedNumberInput) {
-            operand1 = screenContent;
-            calculateResult();
-            operator = e.target.textContent;
-          }
-          changedNumberInput = false;
           break;
       }
   }
   updateScreen();
+}
+
+function enterOperator(e) {
+  if (operand0 === "") {
+    operand0 = screenContent;
+    operator = e.target.textContent;
+  } else if (changedNumberInput) {
+    operand1 = screenContent;
+    calculateResult();
+    operator = e.target.textContent;
+  }
+  changedNumberInput = false;
 }
 
 function enterNumber(e) {
