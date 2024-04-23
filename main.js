@@ -18,17 +18,6 @@ function main(e) {
       break;
 
     case "equals":
-      if (operand0 === "" && operator === "" && operand1 === "") {
-        return;
-      }
-
-      if (screenContent === operand0 && !changedNumberInput) {
-        calculateResult();
-      } else {
-        operand1 = screenContent;
-        calculateResult();
-      }
-      changedNumberInput = false;
       break;
 
     case "clear":
@@ -60,6 +49,20 @@ function main(e) {
       }
   }
   updateScreen();
+}
+
+function enterEquals() {
+  if (operand0 === "" && operator === "" && operand1 === "") {
+    return;
+  }
+
+  if (screenContent === operand0 && !changedNumberInput) {
+    calculateResult();
+  } else {
+    operand1 = screenContent;
+    calculateResult();
+  }
+  changedNumberInput = false;
 }
 
 function entreBackspace() {
