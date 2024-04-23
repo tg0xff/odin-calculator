@@ -4,6 +4,7 @@ let operand1 = "";
 let screenContent = "0";
 let hasDecimalFraction = false;
 let changedNumberInput = false;
+let useCommaSeparator = false;
 
 const buttonIdToFunc = {
   one: enterNumber,
@@ -43,6 +44,13 @@ const buttonIdToOperation = {
   multiplication: multiply,
   division: divide,
 };
+
+const commaButton = document.querySelector("#comma");
+commaButton.addEventListener("click", () => {
+  useCommaSeparator = !useCommaSeparator;
+  commaButton.textContent = (useCommaSeparator) ? "." : ",";
+  updateScreen();
+});
 
 const calcInputs = document.querySelector("#inputs");
 calcInputs.addEventListener("click", main);
@@ -144,11 +152,17 @@ function resetState() {
 
 function updateScreen() {
   let newScreen;
+
   if (screenContent.length > 13) {
     newScreen = "…" + screenContent.slice(-13);
   } else {
     newScreen = screenContent;
   }
+
+  if (useCommaSeparator) {
+    newScreen = newScreen.replace(".", ",");
+  }
+
   screen.textContent = newScreen;
 }
 
