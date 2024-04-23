@@ -13,15 +13,13 @@
   background-color: var(--bg-colour);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fg-colour: #ddd;
-    --fg-error-colour: #ff5f5f;
-    --bg-colour: #000;
-    --bg-hover-colour: #333;
-    --bg-clear-colour: #9d1f1f;
-    --bg-operator-colour: #2266ae;
-  }
+:root.darkMode {
+  --fg-colour: #ddd;
+  --fg-error-colour: #ff5f5f;
+  --bg-colour: #000;
+  --bg-hover-colour: #333;
+  --bg-clear-colour: #9d1f1f;
+  --bg-operator-colour: #2266ae;
 }
 
 button {
