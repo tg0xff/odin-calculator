@@ -104,3 +104,15 @@ button:active {
   color: var(--fg-error-colour);
   text-align: center;
 }
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.header button {
+  border: 3px solid var(--fg-colour);
+  border-radius: 16px;
+  font-size: 2rem;
+}
