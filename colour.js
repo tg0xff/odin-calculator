@@ -18,15 +18,15 @@ prefersColor.addEventListener("change", (e) => {
 const buttonIcon = colourButton.querySelector("span");
 function updateColourButton() {
   if (html.classList.contains("dark-mode")) {
-    if (buttonIcon.classList.contains("fa-sun")) {
-      buttonIcon.classList.remove("fa-sun");
-    }
-    buttonIcon.classList.add("fa-moon");
-  } else {
     if (buttonIcon.classList.contains("fa-moon")) {
       buttonIcon.classList.remove("fa-moon");
     }
     buttonIcon.classList.add("fa-sun");
+  } else {
+    if (buttonIcon.classList.contains("fa-sun")) {
+      buttonIcon.classList.remove("fa-sun");
+    }
+    buttonIcon.classList.add("fa-moon");
   }
 }
 updateColourButton();
