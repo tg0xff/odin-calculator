@@ -68,7 +68,7 @@ function rejectDivideBy0() {
   const body = document.querySelector("body");
   const p = document.createElement("p");
   p.classList.add("error-message");
-  p.textContent = "I'm sorry Dave, I'm afraid I can't do that.";
+  p.textContent = "I'm sorry, Dave. I'm afraid I can't do that.";
   body.appendChild(p);
   setTimeout(() => body.removeChild(p), 5000);
 }
