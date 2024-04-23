@@ -40,7 +40,7 @@ function main(e) {
     default:
       switch (e.target.parentNode.getAttribute("id")) {
         case "calc-numbers":
-          if (screenContent === "0") {
+          if (screenContent === "0" || !inputHasChanged) {
             screenContent = e.target.textContent;
           } else {
             screenContent = screenContent + e.target.textContent;
