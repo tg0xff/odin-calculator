@@ -24,10 +24,14 @@ function main(e) {
       break;
 
     case "calc-backspace":
-      if (screenContent[screenContent.length - 1] === ".") {
-        hasDecimalFraction = false;
+      if (screenContent.length > 1) {
+        if (screenContent[screenContent.length - 1] === ".") {
+          hasDecimalFraction = false;
+        }
+        screenContent = screenContent.slice(0, -1);
+      } else {
+        screenContent = "0";
       }
-      screenContent = screenContent.slice(0, -1);
       break;
 
     case "calc-equals":
