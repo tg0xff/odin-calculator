@@ -5,20 +5,20 @@ let screenContent = "0";
 let hasDecimalFraction = false;
 let changedNumberInput = false;
 
-const calcInputs = document.querySelector("#calc-inputs");
+const calcInputs = document.querySelector("#inputs");
 calcInputs.addEventListener("click", main);
 const screen = document.querySelector("#screen");
 
 function main(e) {
   switch (e.target.getAttribute("id")) {
-    case "calc-dot":
+    case "dot":
       if (!hasDecimalFraction) {
         screenContent = screenContent + ".";
         hasDecimalFraction = true;
       }
       break;
 
-    case "calc-backspace":
+    case "backspace":
       if (screenContent.length > 1) {
         if (screenContent[screenContent.length - 1] === ".") {
           hasDecimalFraction = false;
@@ -29,7 +29,7 @@ function main(e) {
       }
       break;
 
-    case "calc-equals":
+    case "equals":
       if (operand0 === "" && operator === "" && operand1 === "") {
         return;
       }
@@ -43,13 +43,13 @@ function main(e) {
       changedNumberInput = false;
       break;
 
-    case "calc-clear":
+    case "clear":
       resetState();
       break;
 
     default:
       switch (e.target.parentNode.getAttribute("id")) {
-        case "calc-numbers":
+        case "numbers":
           if (screenContent === "0" || !changedNumberInput) {
             screenContent = e.target.textContent;
           } else {
@@ -58,7 +58,7 @@ function main(e) {
           changedNumberInput = true;
           break;
 
-        case "calc-operators":
+        case "operators":
           if (operand0 === "") {
             operand0 = screenContent;
             operator = e.target.textContent;
