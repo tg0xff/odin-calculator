@@ -59,6 +59,13 @@ function main(e) {
           break;
 
         case "calc-operators":
+          if (operand0 === "") {
+            operand0 = screenContent;
+            operator = e.target.textContent;
+          } else if (changedNumberInput) {
+            operand1 = screenContent;
+            calculateResult();
+          }
           changedNumberInput = false;
           break;
       }
