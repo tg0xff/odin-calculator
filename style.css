@@ -13,7 +13,7 @@
   background-color: var(--bg-colour);
 }
 
-:root.darkMode {
+:root.dark-mode {
   --fg-colour: #ddd;
   --fg-error-colour: #ff5f5f;
   --bg-colour: #000;
