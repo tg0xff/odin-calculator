@@ -31,30 +31,12 @@ calcInputs.addEventListener("click", main);
 const screen = document.querySelector("#screen");
 
 function main(e) {
-  switch (e.target.getAttribute("id")) {
-    case "dot":
-      break;
-
-    case "backspace":
-      break;
-
-    case "equals":
-      break;
-
-    case "clear":
-      resetState();
-      break;
-
-    default:
-      switch (e.target.parentNode.getAttribute("id")) {
-        case "numbers":
-          break;
-
-        case "operators":
-          break;
-      }
+  const buttonId = e.target.getAttribute("id");
+  const buttonFunction = buttonIdToFunc[buttonId];
+  if (buttonFunction !== undefined) {
+    buttonFunction(e);
+    updateScreen();
   }
-  updateScreen();
 }
 
 function enterOperator(e) {
