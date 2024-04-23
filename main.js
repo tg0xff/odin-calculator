@@ -30,6 +30,7 @@ function main(e) {
       break;
 
     case "calc-equals":
+      inputHasChanged = false;
       break;
 
     case "calc-clear":
@@ -44,9 +45,11 @@ function main(e) {
           } else {
             screenContent = screenContent + e.target.textContent;
           }
+          inputHasChanged = true;
           break;
 
         case "calc-operators":
+          inputHasChanged = false;
           break;
       }
   }
