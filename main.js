@@ -12,10 +12,6 @@ const screen = document.querySelector("#screen");
 function main(e) {
   switch (e.target.getAttribute("id")) {
     case "dot":
-      if (!hasDecimalFraction) {
-        screenContent = screenContent + ".";
-        hasDecimalFraction = true;
-      }
       break;
 
     case "backspace":
@@ -72,6 +68,13 @@ function main(e) {
       }
   }
   updateScreen();
+}
+
+function enterDot() {
+  if (!hasDecimalFraction) {
+    screenContent = screenContent + ".";
+    hasDecimalFraction = true;
+  }
 }
 
 function calculateResult() {
