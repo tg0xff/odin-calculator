@@ -67,35 +67,35 @@ button:active {
   justify-content: flex-end;
 }
 
-.calc-inputs {
+.inputs {
   flex: 2;
   display: flex;
 }
 
-.calc-numbers {
+.numbers {
   flex: 3;
   display: flex;
   flex-wrap: wrap;
   gap: 1%;
 }
 
-.calc-numbers > * {
+.numbers > * {
   flex-basis: 32%;
 }
 
-.calc-operators {
+.operators {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1%;
 }
 
-.calc-operators > * {
+.operators > * {
   flex: 1;
   background-color: var(--bg-operator-colour);
 }
 
-.calc-clear {
+.clear {
   background-color: var(--bg-clear-colour);
 }
 
