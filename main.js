@@ -33,6 +33,13 @@ function main(e) {
       if (operand0 === "" && operator === "" && operand1 === "") {
         return;
       }
+
+      if (screenContent === operand0 && !changedNumberInput) {
+        calculateResult();
+      } else {
+        operand1 = screenContent;
+        calculateResult();
+      }
       changedNumberInput = false;
       break;
 
