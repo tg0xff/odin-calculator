@@ -27,12 +27,6 @@ function main(e) {
     default:
       switch (e.target.parentNode.getAttribute("id")) {
         case "numbers":
-          if (screenContent === "0" || !changedNumberInput) {
-            screenContent = e.target.textContent;
-          } else {
-            screenContent = screenContent + e.target.textContent;
-          }
-          changedNumberInput = true;
           break;
 
         case "operators":
@@ -49,6 +43,15 @@ function main(e) {
       }
   }
   updateScreen();
+}
+
+function enterNumber(e) {
+  if (screenContent === "0" || !changedNumberInput) {
+    screenContent = e.target.textContent;
+  } else {
+    screenContent = screenContent + e.target.textContent;
+  }
+  changedNumberInput = true;
 }
 
 function enterEquals() {
