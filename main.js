@@ -15,12 +15,12 @@ calcInputs.addEventListener("click", main);
 const screen = document.querySelector("#screen");
 
 function main(e) {
-  if (e.target.textContent === ".") {
+  if (e.target.getAttribute("id") === "calc-dot") {
     if (!hasDecimalFraction) {
       screenContent = screenContent + ".";
       hasDecimalFraction = true;
     }
-  } else if (e.target.textContent === "⌫") {
+  } else if (e.target.getAttribute("id") === "calc-backspace") {
     if (screenContent[screenContent.length - 1] === ".") {
       hasDecimalFraction = false;
     }
@@ -31,12 +31,12 @@ function main(e) {
     } else {
       screenContent = screenContent + e.target.textContent;
     }
-  } else if (e.target.textContent === "=") {
+  } else if (e.target.getAttribute("id") === "calc-equals") {
     if (operand0 === "" && operator === "" && operand1 === "") {
       return;
     }
     calculateResult();
-  } else if (e.target.textContent === "C") {
+  } else if (e.target.getAttribute("id") === "calc-clear") {
     resetState();
   } else if (e.target.parentNode.getAttribute("id") === "calc-operators") {
     if (operand0 === "") {
