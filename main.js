@@ -65,6 +65,7 @@ function main(e) {
           } else if (changedNumberInput) {
             operand1 = screenContent;
             calculateResult();
+            operator = e.target.textContent;
           }
           changedNumberInput = false;
           break;
