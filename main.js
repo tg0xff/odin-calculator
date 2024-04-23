@@ -25,6 +25,18 @@ const buttonIdToFunc = {
   division: enterOperator,
   equals: enterEquals,
 };
+const buttonIdToNumber = {
+  one: "1",
+  two: "2",
+  three: "3",
+  four: "4",
+  five: "5",
+  six: "6",
+  seven: "7",
+  eight: "8",
+  nine: "9",
+  nought: "0",
+};
 
 const calcInputs = document.querySelector("#inputs");
 calcInputs.addEventListener("click", main);
@@ -52,10 +64,12 @@ function enterOperator(e) {
 }
 
 function enterNumber(e) {
+  const buttonId = e.target.getAttribute("id");
+  const number = buttonIdToNumber[buttonId];
   if (screenContent === "0" || !changedNumberInput) {
-    screenContent = e.target.textContent;
+    screenContent = number;
   } else {
-    screenContent = screenContent + e.target.textContent;
+    screenContent = screenContent + number;
   }
   changedNumberInput = true;
 }
