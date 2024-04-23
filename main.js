@@ -3,12 +3,6 @@ let operator = "";
 let operand1 = "";
 let screenContent = "0";
 let hasDecimalFraction = false;
-let operationToFunction = {
-  "+": add,
-  "−": subtract,
-  "×": multiply,
-  "÷": divide,
-};
 
 const calcInputs = document.querySelector("#calc-inputs");
 calcInputs.addEventListener("click", main);
@@ -111,8 +105,24 @@ function updateScreen() {
 }
 
 function operate(operation, x, y) {
-  let operF = operationToFunction[operation];
-  return operF(+x, +y);
+  let result;
+  x = +x;
+  y = +y;
+  switch (operation) {
+    case "+":
+      result = add(x, y);
+      break;
+    case "−":
+      result = subtract(x, y);
+      break;
+    case "×":
+      result = multiply(x, y);
+      break;
+    case "÷":
+      result = divide(x, y);
+      break;
+  }
+  return result;
 }
 
 function add(x, y) {
