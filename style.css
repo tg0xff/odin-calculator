@@ -27,9 +27,6 @@
 button {
   color: var(--fg-colour);
   background-color: var(--bg-colour);
-  border: 2px solid var(--fg-colour);
-  border-radius: 6px;
-  font-size: 4.5rem;
 }
 
 button:hover {
@@ -52,6 +49,12 @@ button:active {
 
   display: flex;
   flex-direction: column;
+}
+
+.calc button {
+  border: 2px solid var(--fg-colour);
+  border-radius: 6px;
+  font-size: 3.5rem;
 }
 
 .screen {
