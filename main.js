@@ -15,14 +15,6 @@ function main(e) {
       break;
 
     case "backspace":
-      if (screenContent.length > 1) {
-        if (screenContent[screenContent.length - 1] === ".") {
-          hasDecimalFraction = false;
-        }
-        screenContent = screenContent.slice(0, -1);
-      } else {
-        screenContent = "0";
-      }
       break;
 
     case "equals":
@@ -68,6 +60,17 @@ function main(e) {
       }
   }
   updateScreen();
+}
+
+function entreBackspace() {
+  if (screenContent.length > 1) {
+    if (screenContent[screenContent.length - 1] === ".") {
+      hasDecimalFraction = false;
+    }
+    screenContent = screenContent.slice(0, -1);
+  } else {
+    screenContent = "0";
+  }
 }
 
 function enterDot() {
