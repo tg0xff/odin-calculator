@@ -3,7 +3,7 @@ let operator = "";
 let operand1 = "";
 let screenContent = "0";
 let hasDecimalFraction = false;
-let inputHasChanged = false;
+let changedNumberInput = false;
 
 const calcInputs = document.querySelector("#calc-inputs");
 calcInputs.addEventListener("click", main);
@@ -30,7 +30,7 @@ function main(e) {
       break;
 
     case "calc-equals":
-      inputHasChanged = false;
+      changedNumberInput = false;
       break;
 
     case "calc-clear":
@@ -40,16 +40,16 @@ function main(e) {
     default:
       switch (e.target.parentNode.getAttribute("id")) {
         case "calc-numbers":
-          if (screenContent === "0" || !inputHasChanged) {
+          if (screenContent === "0" || !changedNumberInput) {
             screenContent = e.target.textContent;
           } else {
             screenContent = screenContent + e.target.textContent;
           }
-          inputHasChanged = true;
+          changedNumberInput = true;
           break;
 
         case "calc-operators":
-          inputHasChanged = false;
+          changedNumberInput = false;
           break;
       }
   }
