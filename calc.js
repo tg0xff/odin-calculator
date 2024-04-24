@@ -5,6 +5,7 @@ let screenContent = "0";
 let hasDecimalFraction = false;
 let changedNumberInput = false;
 let useCommaSeparator = false;
+let screenMaxChars = 13;
 
 const buttonIdToFunc = {
   one: enterNumber,
@@ -55,6 +56,25 @@ commaButton.addEventListener("click", () => {
 const calcInputs = document.querySelector("#inputs");
 calcInputs.addEventListener("click", main);
 const screen = document.querySelector("#screen");
+
+// Dynamically calculate how many characters can the calculator screen contain
+// without overflowing every time the screen element is resized. It's not a
+// perfect solution, its effectiveness depends on the font that's being
+// rendered. It also makes the page performance somewhat worse. Nevertheless, I
+// think this is better than just letting it overflow or hardcoding a character
+// limit.
+const screenObserver = new ResizeObserver((entries) => {
+  for (const entry of entries) {
+    const screenWidth = entry.borderBoxSize[0].inlineSize;
+    const screenFontSize = window.getComputedStyle(entry.target, null).getPropertyValue('font-size');
+    let screenEm = screenFontSize.slice(0, -2);
+    screenEm = +screenFontSize;
+    const screenCh = screenEm * 0.7;
+    screenMaxChars = Math.round(screenWidth / screenCh);
+    updateScreen();
+  }
+});
+screenObserver.observe(screen);
 
 function main(e) {
   const buttonId = e.target.getAttribute("id");
@@ -127,7 +147,7 @@ function calculateResult() {
   }
   let result = operate(operator, operand0, operand1);
   result = result.toFixed(0);
-  if (result.length > 13) {
+  if (result.length > screenMaxChars) {
     result = Number.parseFloat(result);
     screenContent = result.toExponential(3);
   } else {
@@ -159,8 +179,8 @@ function resetState() {
 function updateScreen() {
   let newScreen;
 
-  if (screenContent.length > 13) {
-    newScreen = "…" + screenContent.slice(-13);
+  if (screenContent.length > screenMaxChars) {
+    newScreen = "…" + screenContent.slice(-screenMaxChars);
   } else {
     newScreen = screenContent;
   }
