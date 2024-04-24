@@ -48,7 +48,7 @@ const buttonIdToOperation = {
 const commaButton = document.querySelector("#comma");
 commaButton.addEventListener("click", () => {
   useCommaSeparator = !useCommaSeparator;
-  commaButton.textContent = (useCommaSeparator) ? "." : ",";
+  commaButton.textContent = useCommaSeparator ? "." : ",";
   updateScreen();
 });
 
