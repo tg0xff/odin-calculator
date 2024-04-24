@@ -66,7 +66,9 @@ const screen = document.querySelector("#screen");
 const screenObserver = new ResizeObserver((entries) => {
   for (const entry of entries) {
     const screenWidth = entry.borderBoxSize[0].inlineSize;
-    const screenFontSize = window.getComputedStyle(entry.target, null).getPropertyValue('font-size');
+    const screenFontSize = window
+      .getComputedStyle(entry.target, null)
+      .getPropertyValue("font-size");
     let screenEm = screenFontSize.slice(0, -2);
     screenEm = +screenEm;
     const screenCh = screenEm * 0.7;
