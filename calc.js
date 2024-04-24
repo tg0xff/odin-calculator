@@ -125,8 +125,14 @@ function calculateResult() {
     rejectDivideBy0();
     return;
   }
-  screenContent = operate(operator, operand0, operand1);
-  screenContent = screenContent.toString();
+  let result = operate(operator, operand0, operand1);
+  result = result.toFixed(0);
+  if (result.length > 13) {
+    result = Number.parseFloat(result);
+    screenContent = result.toExponential(3);
+  } else {
+    screenContent = result;
+  }
   hasDecimalFraction = !!screenContent.includes(".");
   operand0 = screenContent;
 }
