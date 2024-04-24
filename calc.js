@@ -68,7 +68,7 @@ const screenObserver = new ResizeObserver((entries) => {
     const screenWidth = entry.borderBoxSize[0].inlineSize;
     const screenFontSize = window.getComputedStyle(entry.target, null).getPropertyValue('font-size');
     let screenEm = screenFontSize.slice(0, -2);
-    screenEm = +screenFontSize;
+    screenEm = +screenEm;
     const screenCh = screenEm * 0.7;
     screenMaxChars = Math.round(screenWidth / screenCh);
     updateScreen();
