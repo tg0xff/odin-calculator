@@ -148,7 +148,7 @@ function calculateResult() {
     return;
   }
   let result = operate(operator, operand0, operand1);
-  result = result.toFixed(0);
+  result = result.toString();
   if (result.length > screenMaxChars) {
     result = Number.parseFloat(result);
     screenContent = result.toExponential(3);
